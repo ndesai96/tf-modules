@@ -54,6 +54,12 @@ variable "app_secrets" {
   default     = {}
 }
 
+variable "app_envs" {
+  description = "A map of environment variables to pass to the container. The keys are the environment variable names and the values are the environment variable values."
+  type        = map(string)
+  default     = {}
+}
+
 variable "aws_region" {
   description = "The AWS region things are created in."
   type        = string

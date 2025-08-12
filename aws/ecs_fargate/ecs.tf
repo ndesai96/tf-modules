@@ -38,6 +38,12 @@ resource "aws_ecs_task_definition" "app" {
           valueFrom = value
         }
       ]
+      environment = [
+        for name, value in var.app_envs : {
+          name  = name
+          value = value
+        }
+      ]
       logConfiguration = {
         logDriver = "awslogs"
         options = {
