@@ -31,3 +31,8 @@ resource "aws_vpc_security_group_ingress_rule" "ingress_admin" {
   to_port           = 8086
 }
 
+resource "aws_secretsmanager_secret" "api_token" {
+  name                    = "${var.name}-db-api-token"
+  recovery_window_in_days = 0
+}
+
