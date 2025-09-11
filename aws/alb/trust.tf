@@ -20,7 +20,7 @@ resource "aws_s3_object" "ca_cert_object" {
 resource "aws_lb_trust_store" "main" {
   count = var.enable_mtls ? 1 : 0
 
-  name                             = "${var.app_name}-trust-store"
+  name                             = "${var.app_name}-ts"
   ca_certificates_bundle_s3_bucket = aws_s3_bucket.ca_cert_bucket[0].id
   ca_certificates_bundle_s3_key    = aws_s3_object.ca_cert_object[0].key
 }
